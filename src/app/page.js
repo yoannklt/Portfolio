@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+
 export default function Home() {
   return (
     <main className="bg-gray-900 text-white min-min-h-screen">
@@ -45,6 +46,7 @@ const Profil = () => {
         alt="Photo de profil"
         width={160}
         height={160}
+        priority={true}
         className="rounded-full shadow-lg mb-6"
       />
       <h1 className="text-4xl font-bold text-white mb-4">Yoann</h1>
@@ -82,6 +84,7 @@ const Projets = () => {
               alt={project.title}
               width={400}
               height={160}
+              loading="lazy"
               className="object-cover rounded-md mb-4"
             />
             <h3 className="text-xl font-bold">{project.title}</h3>
