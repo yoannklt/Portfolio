@@ -36,7 +36,7 @@ const Hobbies = () => {
     return (
         <section id="hobbies" className="min-h-screen flex flex-col items-center justify-center px-6 fade-in"
             ref={ref} >
-            <h2 className="text-5xl font-semibold mb-8">Mes Hobbies</h2>
+            <h2 className="text-4xl font-semibold mb-8">Mes Hobbies</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                 {hobbyList.map((hobby, index) => (
                     <div key={index} className="flex flex-col items-center">

@@ -126,15 +126,25 @@ nav {
   gap: 2rem;
 }
 
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
 .project-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
-  max-width: 800px;
+  width: 100%;
+  max-width: 1000px;
   padding: 1.5rem;
   border-radius: 12px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  gap: 2rem;
 }
 
 [data-theme="light"] .project-card {
@@ -165,13 +175,14 @@ nav {
 .project-img {
   width: 180px;
   height: 120px;
-  border-radius: 8px;
+  border-radius: 40px;
   object-fit: cover;
-  margin-right: 1rem;
+  flex-shrink: 0;
 }
 
 .project-text {
   max-width: 500px;
+  flex-grow: 1;
 }
 
 .project-text h3 {
