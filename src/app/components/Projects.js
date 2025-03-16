@@ -32,25 +32,26 @@ const Projects = () => {
     ]
 
     return (
-        <section id="projects" className="min-h-screen flex flex-col items-center justify-center px-6 fade-in"
+        <section id="projects" className="projects-section"
             ref={ref} >
             <h2 className="text-3xl font-semibold mb-8">Mes Projets</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-                {projects.map((project, index) => (
-                    <div key={index} className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <Image
-                            src={project.image}
-                            alt={project.title}
-                            width={400}
-                            height={160}
-                            loading="lazy"
-                            className="object-cover rounded-md mb-4"
-                        />
-                        <h3 className="text-xl font-bold">{project.title}</h3>
-                        <p className="text-gray-400">{project.description}</p>
+
+            {projects.map((project, index) => (
+                <div key={index} className="project-card">
+                    <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={400}
+                        height={160}
+                        loading="lazy"
+                        className="project-image"
+                    />
+                    <div className="project-text">
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
                     </div>
-                ))}
-            </div>
+                </div>
+            ))}
         </section>
     )
 }

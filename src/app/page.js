@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <main className="min-min-h-screen">
-      <nav className="navbar fixed flex justify-between top-0 w-full bg-[#161B22] py-4 shadow-lg border-b border-gray-600 z-50">
+      <nav className="navbar fixed flex justify-between top-0 w-full py-4 shadow-lg border-b border-gray-600 z-50">
         <ul className="flex justify-center space-x-6 mx-8">
           <li><Link to="profil" smooth={true} duration={500} offset={-80} className="cursor-pointer">Profil</Link></li>
           <li><Link to="projects" smooth={true} duration={500} offset={-90} className="cursor-pointer">Projets</Link></li>

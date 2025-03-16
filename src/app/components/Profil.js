@@ -25,21 +25,23 @@ const Profil = () => {
     }, []);
 
     return (
-        <section id="profil" className="min-h-screen flex flex-col items-center justify-center px-6 fade-in"
+        <section id="profil" className="profile-section"
             ref={ref} >
             <Image
-                src="/globe.svg"
+                src="/images/profile-image.webp"
                 alt="Photo de profil"
-                width={160}
-                height={160}
+                width={300}
+                height={300}
                 priority={true}
-                className="rounded-full shadow-lg mb-6"
+                className="profile-img"
             />
-            <h1 className="text-6xl font-bold text-white mb-4">Yoann Kerlogot</h1>
-            <p className="text-lg text-center text-gray-700 max-w-2xl">
-                {`Je suis un passionné de développement et danalyse de données. J'aime créer des projets innovants et
-                partager mes connaissances.`}
-            </p>
+            <div className="profile-text">
+                <h1>Yoann Kerlogot</h1>
+                <p>
+                    {`Je suis un passionné de développement et danalyse de données. J'aime créer des projets innovants et
+                    partager mes connaissances.`}
+                </p>
+            </div>
         </section>
     )
 }
