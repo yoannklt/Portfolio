@@ -1,28 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #E6EDF3; /* Fond principal */
-  --color-text:  #0D1117; /* Texte principal */
+  --color-bg-light: #E6EDF3; /* Fond principal */
+  --color-text-light:  #0D1117; /* Texte principal */
+  --color-bg-light-dark: #0D1117;
+  --color-text-dark: #E6EDF3;
   --color-accent-blue: #58A6FF;
   --color-accent-red: #fd3c3c;
   --color-border: #30363D; /* Pour les séparateurs */
 }
 
-html {
-  scroll-behavior: smooth !important;
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0D1117;
+  --text-color: #E6EDF3;
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 h1, h2{
-  color: var(--color-text);
+  color: var(--color-text-light);
 }
 
 .navbar a {
-  color: var(--color-bg);
+  color: var(--color-bg-light);
   transition: color 0.3 ease-in-out;
 }
 
@@ -31,11 +40,11 @@ h1, h2{
 }
 
 .bg-primary {
-  background-color: var(--color-bg) !important;
+  background-color: var(--color-bg-light) !important;
 }
 
 .text-primary {
-  color: var(--color-text);
+  color: var(--color-text-light);
 }
 
 .text-accent-blue {
