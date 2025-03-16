@@ -1,6 +1,5 @@
 "use client"
 
-import { animate } from "framer-motion";
 import { useEffect, useRef } from "react"
 
 const skillsList = [
@@ -13,28 +12,28 @@ const skillsList = [
 
 const Skills = () => {
 
-    const sectionRef = useRef(null);
+    const ref = useRef(null);
 
     useEffect(() => {
-        if (!sectionRef.current) return;
-
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    animate(entry.target, { opacity: 1, y: 0 }, { duration: 0.6, easing: "easeOut" });
+                    entry.target.classList.add("visible");
                 }
             },
             { threshold: 0.2 }
         );
 
-        observer.observe(sectionRef.current);
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
 
         return () => observer.disconnect();
     }, []);
 
     return (
-        <section className="min-h-screen flex flex-col items-center justify-center px-6"
-            ref={sectionRef} style={{ opacity: 0, transform: "translateY(50px)" }}>
+        <section id="skills" className="min-h-screen flex flex-col items-center justify-center px-6 fade-in"
+            ref={ref}>
             <h2 className="text-3xl font-semibold mb-8">Compétences</h2>
             <div className="w-full max-w-xl">
                 {skillsList.map((skill, index) => (

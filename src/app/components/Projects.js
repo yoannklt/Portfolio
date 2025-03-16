@@ -1,26 +1,25 @@
 "use client"
 
 import Image from "next/image";
-import { animate } from "motion";
 import { useEffect, useRef } from "react";
 
 const Projects = () => {
 
-    const sectionRef = useRef(null);
+    const ref = useRef(null);
 
     useEffect(() => {
-        if (!sectionRef.current) return;
-
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    animate(entry.target, { opacity: 1, y: 0 }, { duration: 0.6, easing: "easeOut" });
+                    entry.target.classList.add("visible");
                 }
             },
             { threshold: 0.2 }
         );
 
-        observer.observe(sectionRef.current);
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
 
         return () => observer.disconnect();
     }, []);
@@ -33,8 +32,8 @@ const Projects = () => {
     ]
 
     return (
-        <section className="min-h-screen flex flex-col items-center justify-center px-6"
-            ref={sectionRef} style={{ opacity: 0, transform: "translateY(50px)" }}>
+        <section id="projects" className="min-h-screen flex flex-col items-center justify-center px-6 fade-in"
+            ref={ref} >
             <h2 className="text-3xl font-semibold mb-8">Mes Projets</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
                 {projects.map((project, index) => (

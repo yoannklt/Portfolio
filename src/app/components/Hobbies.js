@@ -1,6 +1,5 @@
 "use client"
 
-import { animate } from "motion";
 import { FaMusic, FaGamepad, FaCode, FaBook, FaCamera, FaBacteria } from "react-icons/fa";
 import { useEffect, useRef } from "react"
 
@@ -15,29 +14,29 @@ const hobbyList = [
 
 const Hobbies = () => {
 
-    const sectionRef = useRef(null);
+    const ref = useRef(null);
 
     useEffect(() => {
-        if (!sectionRef.current) return;
-
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    animate(entry.target, { opacity: 1, y: 0 }, { duration: 0.6, easing: "easeOut" });
+                    entry.target.classList.add("visible");
                 }
             },
             { threshold: 0.2 }
         );
 
-        observer.observe(sectionRef.current);
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
 
         return () => observer.disconnect();
     }, []);
 
     return (
-        <section className="min-h-screen flex flex-col items-center justify-center px-6"
-            ref={sectionRef} style={{ opacity: 0, transform: "translateY(50px)" }}>
-            <h2 className="text-3xl font-semibold mb-8">Mes Hobbies</h2>
+        <section id="hobbies" className="min-h-screen flex flex-col items-center justify-center px-6 fade-in"
+            ref={ref} >
+            <h2 className="text-5xl font-semibold mb-8">Mes Hobbies</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                 {hobbyList.map((hobby, index) => (
                     <div key={index} className="flex flex-col items-center">
