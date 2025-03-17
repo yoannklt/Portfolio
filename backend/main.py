@@ -1,5 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from fastapi import FastAPI, HTTPException, BackgroundTasks
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import smtplib
 from email.mime.text import MIMEText
@@ -15,9 +16,18 @@ MONGO_URI = os.getenv("MONGO_URI")
 
 # Connexion à MongoDB
 client = AsyncIOMotorClient(MONGO_URI)
-db = client.portfolio  # Nom de la base de données
+db = client["portfolio"]
+project_collection = db["projects"]
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 @app.get("/")
 async def root():
@@ -60,3 +70,23 @@ async def send_email_request(request: EmailRequest, background_tasks: Background
         return {"message": "Email envoyé avec succès!"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+
+# Gestion des projets depuis MongoDB
+class Project(BaseModel):
+    title: str
+    description: str
+    image: str
+    repository: str
+    skills: list[str]
+
+@app.get("/projects")
+async def get_projects():
+    projects = await project_collection.find({}, {"_id":0}).to_list(100)
+    return {"projects": projects}
+
+@app.post("/projects")
+async def add_projects(project: Project):
+    await project_collection.insert_one(project.dict())
+    return {"message": "Projet ajouté avec succès!"}
+
