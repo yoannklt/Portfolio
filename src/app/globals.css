@@ -22,6 +22,10 @@
   --accent-color: #fd3c3c;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -116,6 +120,7 @@ nav {
   color: var(--text-color);
 }
 
+/* 🌟 SECTION PROJETS - Disposition générale */
 .projects-section {
   display: flex;
   flex-direction: column;
@@ -126,6 +131,7 @@ nav {
   gap: 2rem;
 }
 
+/* 🖥️ GRID - Affichage en 2 colonnes sur grand écran */
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -135,18 +141,24 @@ nav {
   max-width: 1200px;
 }
 
+/* 🎨 CARDS PROJETS - Par défaut */
 .project-card {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1000px;
+  max-width: 800px;
   padding: 1.5rem;
   border-radius: 12px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(0px);
+  transition: backdrop-filter 0.15s ease, background 0.15s ease, transform 0.15s;
+  overflow: hidden;
   gap: 2rem;
 }
 
+/* Mode clair */
 [data-theme="light"] .project-card {
   background-color: #f8f9fa;
   color: #000000;
@@ -160,26 +172,35 @@ nav {
   box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-}
+/* 💎 EFFET GLASSMORPHISM AU HOVER (uniquement sur desktop) */
+@media (min-width: 768px) {
+  .project-card:hover {
+    backdrop-filter: blur(15px); /* Flou plus intense */
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.02);
+  }
 
-@media (max-width: 768px) {
-  .project-card {
-    flex-direction: column;
-    text-align: center;
+  /* Affecte aussi l'image et le texte au hover */
+  .project-img, .project-text h3, .project-text p {
+    transition: filter 0.15s ease;
+  }
+
+  .project-card:hover .project-img,
+  .project-card:hover .project-text h3,
+  .project-card:hover .project-text p {
+    filter: blur(5px);
   }
 }
 
+/* 🖼️ IMAGE PROJET */
 .project-img {
   width: 180px;
-  height: 120px;
-  border-radius: 40px;
-  object-fit: cover;
+  height: 140px;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
+/* 📝 TEXTE PROJET */
 .project-text {
   max-width: 500px;
   flex-grow: 1;
@@ -196,28 +217,46 @@ nav {
   line-height: 1.5;
 }
 
-.skills {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  color: var(--accent-color);
+/* 🎭 ICÔNES COMPÉTENCES - Affichage uniquement au hover (sur desktop) */
+@media (min-width: 768px) {
+  .project-logos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    gap: 3rem;
+  }
+
+  .project-card:hover .project-logos {
+    opacity: 1;
+  }
 }
 
-.skills span {
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 4px 8px;
-  border-radius: 5px;
-  margin-right: 5px;
-  font-size: 0.9rem;
+/* 🛠️ STYLE DES ICÔNES */
+.skill-icon {
+  font-size: 56px;
 }
 
-[data-theme="light"] .skills span {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #000;
+/* 🏗️ RESPONSIVE - Passage en colonne sur mobile */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
-[data-theme="dark"] .skills span {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #E6EDF3;
-}
+/* 🎨 Couleurs des icônes des compétences */
+.skill-icon.react { color: #61DAFB; }  /* Bleu clair React */
+.skill-icon.python { color: #FFD43B; } /* Jaune Python */
+.skill-icon.fastapi { color: #009688; } /* Vert FastAPI */
+.skill-icon.nextjs { color: #000000; } /* Noir Next.js */
+.skill-icon.tailwind { color: #38B2AC; } /* Bleu-vert Tailwind */
+.skill-icon.csharp { color: #68217A; } /* Violet C# */
+.skill-icon.unity { color: #FFFFFF; } /* Blanc Unity */
+.skill-icon.blender { color: #F5792A; } /* Orange Blender */
+
+

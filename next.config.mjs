@@ -7,12 +7,21 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = {
     reactStrictMode: true,
     compiler: {
-        removeConsole: true, // Supprime les console.log() en prod
+        removeConsole: true,
     },
-    experimental: {
-        profiling: true, // Active l’analyse des performances
-    },
+    async headers() {
+        return [
+            {
+                source: "/(.*)",
+                headers: [
+                    {
+                        key: "Strict-Transport-Security",
+                        value: "max-age=31536000; includeSubDomains; preload"
+                    }
+                ]
+            }
+        ];
+    }
 };
 
 export default nextConfig;
-

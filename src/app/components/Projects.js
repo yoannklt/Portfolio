@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
+import { FaReact } from "react-icons/fa";
+import { SiNextdotjs, SiTailwindcss, SiFastapi, SiUnity, SiPython } from "react-icons/si";
+
 const Projects = () => {
 
     const ref = useRef(null);
@@ -26,52 +29,70 @@ const Projects = () => {
 
     const projects = [
         {
-            title: "Porfolio",
-            description: "Mon propre site portfolio!",
+            title: "Portfolio",
+            description: "Mon portfolio personnel avec Next.js et FastAPI.",
             image: "/images/profile-image.webp",
-            skills: ["React", "MongoDB", "FastAPI"],
+            repository: "https://github.com/yoannklt/portfolio",
+            skills: [
+                { icon: FaReact, className: "react" },
+                { icon: SiNextdotjs, className: "nextjs" },
+                { icon: SiTailwindcss, className: "tailwind" },
+                { icon: SiFastapi, className: "fastapi" },
+            ],
         },
         {
             title: "Jeu de rythme",
-            description: "Un jeu de rythme inspiré de Osu! en C#.",
+            description: "Un jeu de rythme inspiré d'Osu! développé en Unity.",
             image: "/globe.svg",
-            skills: ["C#", "Unity"],
+            repository: "",
+            skills: [
+                { icon: SiUnity, className: "unity" },
+            ],
         },
         {
-            title: "Outil d'analyse de données",
-            description: "Outil réalisé pour permettre l'analyse de données et la rédactions de graphes",
+            title: "Analyse de données",
+            description: "Projet permettant l'analyse des données de sites internet.",
             image: "/globe.svg",
-            skills: ["Python", "Pandas", "Plotly"],
+            repository: "",
+            skills: [
+                { icon: SiPython, className: "python" },
+            ],
         },
+
     ];
 
 
     return (
-        <section id="projects" className="projects-section"
-            ref={ref} >
-            <h2 className="text-[48px] font-bold itali mb-8">Mes Projets</h2>
+        <section id="projects" className="projects-section" ref={ref} >
+            <h2 className="text-[48px] font-bold mb-8">Mes Projets</h2>
 
             <div className="projects-container">
                 {projects.map((project, index) => (
-                    <div key={index} className="project-card">
+                    <a
+                        key={index}
+                        href={project.repository}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-card"
+                    >
                         <Image
                             src={project.image}
                             alt={project.title}
                             width={180}
                             height={140}
                             loading="lazy"
-                            className="project-image rounded-xl"
+                            className="project-img rounded-xl"
                         />
                         <div className="project-text">
                             <h3>{project.title}</h3>
                             <p>{project.description}</p>
-                            <p className="skills">
-                                {project.skills.map((skill, i) => (
-                                    <span key={i}>{skill} </span>
-                                ))}
-                            </p>
                         </div>
-                    </div>
+                        <div className="project-logos">
+                            {project.skills.map(({ icon: Icon, className }, i) => (
+                                <Icon key={i} className={`skill-icon ${className}`} />
+                            ))}
+                        </div>
+                    </a>
                 ))}
             </div>
         </section>
