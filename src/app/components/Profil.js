@@ -25,7 +25,7 @@ const Profil = () => {
     }, []);
 
     return (
-        <section id="profil" className="profile-section"
+        <section id="profil" className="profile-section fade-in"
             ref={ref} >
             <Image
                 src="/images/profile-image.webp"
@@ -42,8 +42,9 @@ const Profil = () => {
                     partager mes connaissances.
                     `}
                 </p>
+                <br />
                 <p>
-                    {`Actuellement je suis à la recherche d'une alternance dans l'analyse de données.`}
+                    {`Je suis actuellement à la recherche d'un contrat d'alternance dans le secteur de la donnée.`}
                 </p>
             </div>
         </section>

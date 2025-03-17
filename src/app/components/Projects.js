@@ -1,14 +1,26 @@
 "use client"
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { FaReact } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiFastapi, SiUnity, SiPython } from "react-icons/si";
 
+const skillsIcons = {
+    React: FaReact,
+    "Next.js": SiNextdotjs,
+    TailwindCSS: SiTailwindcss,
+    FastAPI: SiFastapi,
+    Unity: SiUnity,
+    Python: SiPython
+};
+
 const Projects = () => {
 
     const ref = useRef(null);
+
+    const [projects, setProjects] = useState([]);
+    const fetched = useRef(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -27,43 +39,28 @@ const Projects = () => {
         return () => observer.disconnect();
     }, []);
 
-    const projects = [
-        {
-            title: "Portfolio",
-            description: "Mon portfolio personnel avec Next.js et FastAPI.",
-            image: "/images/profile-image.webp",
-            repository: "https://github.com/yoannklt/portfolio",
-            skills: [
-                { icon: FaReact, className: "react" },
-                { icon: SiNextdotjs, className: "nextjs" },
-                { icon: SiTailwindcss, className: "tailwind" },
-                { icon: SiFastapi, className: "fastapi" },
-            ],
-        },
-        {
-            title: "Jeu de rythme",
-            description: "Un jeu de rythme inspiré d'Osu! développé en Unity.",
-            image: "/globe.svg",
-            repository: "",
-            skills: [
-                { icon: SiUnity, className: "unity" },
-            ],
-        },
-        {
-            title: "Analyse de données",
-            description: "Projet permettant l'analyse des données de sites internet.",
-            image: "/globe.svg",
-            repository: "",
-            skills: [
-                { icon: SiPython, className: "python" },
-            ],
-        },
-
-    ];
-
+    useEffect(() => {
+        if (!fetched.current) {
+            fetched.current = true;
+            fetch("http://127.0.0.1:8000/projects")
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error(`Erreur HTTP: ${res.status}`);
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    if (!data.projects) {
+                        throw new Error(`Réponse API invalide`);
+                    }
+                    setProjects(data.projects);
+                })
+                .catch((err) => console.error("Erreur lors du chargement des projets: ", err.message));
+        }
+    }, [])
 
     return (
-        <section id="projects" className="projects-section" ref={ref} >
+        <section id="projects" className="projects-section fade-in" ref={ref} >
             <h2 className="text-[48px] font-bold mb-8">Mes Projets</h2>
 
             <div className="projects-container">
@@ -88,9 +85,10 @@ const Projects = () => {
                             <p>{project.description}</p>
                         </div>
                         <div className="project-logos">
-                            {project.skills.map(({ icon: Icon, className }, i) => (
-                                <Icon key={i} className={`skill-icon ${className}`} />
-                            ))}
+                            {project.skills.map((skill, i) => {
+                                const Icon = skillsIcons[skill]; // Associe la string à son icône
+                                return Icon ? <Icon key={i} className={`skill-icon ${skill.toLowerCase()}`} /> : null;
+                            })}
                         </div>
                     </a>
                 ))}

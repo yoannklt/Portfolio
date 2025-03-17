@@ -247,6 +247,10 @@ nav {
     flex-direction: column;
     text-align: center;
   }
+
+  .skill-icon {
+    display: none;
+  }
 }
 
 /* 🎨 Couleurs des icônes des compétences */
@@ -254,9 +258,48 @@ nav {
 .skill-icon.python { color: #FFD43B; } /* Jaune Python */
 .skill-icon.fastapi { color: #009688; } /* Vert FastAPI */
 .skill-icon.nextjs { color: #000000; } /* Noir Next.js */
-.skill-icon.tailwind { color: #38B2AC; } /* Bleu-vert Tailwind */
+.skill-icon.tailwindcss { color: #38B2AC; } /* Bleu-vert Tailwind */
 .skill-icon.csharp { color: #68217A; } /* Violet C# */
 .skill-icon.unity { color: #FFFFFF; } /* Blanc Unity */
 .skill-icon.blender { color: #F5792A; } /* Orange Blender */
 
+/* 📌 Footer */
+.footer {
+  width: 100%;
+  background-color: #161B22; /* Sombre, adapté au design du site */
+  color: #E6EDF3; /* Texte clair pour contraste */
+  padding: 1.5rem 0;
+  text-align: center;
+  border-top: 1px solid #30363d;
+}
 
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: #7abfff; /* Bleu clair pour se démarquer */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #61DAFB; /* Bleu React au survol */
+}
+
+/* 📌 Responsive : Aligner verticalement sur mobile */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

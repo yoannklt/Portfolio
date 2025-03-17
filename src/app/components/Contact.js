@@ -1,10 +1,29 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Contact = () => {
+    const ref = useRef(null);
+
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
     const [status, setStatus] = useState("");
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -33,7 +52,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="min-h-screen flex flex-col items-center justify-center px-6 pb-20">
+        <section ref={ref} id="contact" className="min-h-screen flex flex-col items-center justify-center px-6 fade-in">
             <h2 className="text-3xl font-semibold mb-8">Me Contacter</h2>
             <form onSubmit={handleSubmit} className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-lg">
                 <div className="mb-4">
@@ -74,7 +93,7 @@ const Contact = () => {
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded transition duration-300"
+                    className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded transition duration-300 cursor-pointer"
                 >
                     Envoyer
                 </button>
