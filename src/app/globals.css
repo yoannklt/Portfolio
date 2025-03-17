@@ -105,9 +105,9 @@ nav {
 }
 
 .profile-text h1 {
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .profile-text p {
@@ -194,4 +194,30 @@ nav {
 .project-text p {
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.skills {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: var(--accent-color);
+}
+
+.skills span {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 0.9rem;
+}
+
+[data-theme="light"] .skills span {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+[data-theme="dark"] .skills span {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #E6EDF3;
 }

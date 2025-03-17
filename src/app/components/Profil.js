@@ -38,8 +38,12 @@ const Profil = () => {
             <div className="profile-text">
                 <h1>Yoann Kerlogot</h1>
                 <p>
-                    {`Je suis un passionné de développement et danalyse de données. J'aime créer des projets innovants et
-                    partager mes connaissances.`}
+                    {`Je suis un étudiant passionné de développement et d'analyse de données. J'aime créer des projets innovants et
+                    partager mes connaissances.
+                    `}
+                </p>
+                <p>
+                    {`Actuellement je suis à la recherche d'une alternance dans l'analyse de données.`}
                 </p>
             </div>
         </section>

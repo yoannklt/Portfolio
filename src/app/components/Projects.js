@@ -25,10 +25,26 @@ const Projects = () => {
     }, []);
 
     const projects = [
-        { title: "Portfolio", description: "Mon site personnel en Next.js et FastAPI.", image: "/images/profile-image.webp" },
-        { title: "Jeu de rythme", description: "Un projet inspiré de Osu! en C#.", image: "/globe.svg" },
-        { title: "Analyse de données", description: "Un outil permettant l'analyse de données.", image: "/globe.svg" },
-    ]
+        {
+            title: "Porfolio",
+            description: "Mon propre site portfolio!",
+            image: "/images/profile-image.webp",
+            skills: ["React", "MongoDB", "FastAPI"],
+        },
+        {
+            title: "Jeu de rythme",
+            description: "Un jeu de rythme inspiré de Osu! en C#.",
+            image: "/globe.svg",
+            skills: ["C#", "Unity"],
+        },
+        {
+            title: "Outil d'analyse de données",
+            description: "Outil réalisé pour permettre l'analyse de données et la rédactions de graphes",
+            image: "/globe.svg",
+            skills: ["Python", "Pandas", "Plotly"],
+        },
+    ];
+
 
     return (
         <section id="projects" className="projects-section"
@@ -49,6 +65,11 @@ const Projects = () => {
                         <div className="project-text">
                             <h3>{project.title}</h3>
                             <p>{project.description}</p>
+                            <p className="skills">
+                                {project.skills.map((skill, i) => (
+                                    <span key={i}>{skill} </span>
+                                ))}
+                            </p>
                         </div>
                     </div>
                 ))}
