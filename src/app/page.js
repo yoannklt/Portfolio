@@ -5,8 +5,9 @@ import ThemeSwitcher from "./components/ThemeSwitcher";
 
 const Profil = dynamic(() => import("./components/Profil"), { ssr: false });
 const Projects = dynamic(() => import("./components/Projects"), { ssr: false });
-const Hobbies = dynamic(() => import("./components/Education"), { ssr: false });
+const Education = dynamic(() => import("./components/Education"), { ssr: false });
 const Contact = dynamic(() => import("./components/Contact"), { ssr: false });
+const Footer = dynamic(() => import("./components/Footer"), { ssr: false });
 
 export default function Home() {
 
@@ -26,9 +27,10 @@ export default function Home() {
       <div className="pt-20">
         <Profil />
         <Projects />
-        <Hobbies />
+        <Education />
         <Contact />
       </div>
+      <Footer />
     </main>
   );
 };

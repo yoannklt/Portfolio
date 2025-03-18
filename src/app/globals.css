@@ -7,6 +7,7 @@
 [data-theme="light"] {
   --bg-color: #e1e7ec;
   --text-color: #000000;
+  --secondary-bg-color: #f8f9fa;
   --nav-bg-color: #1b1b1f;
   --nav-text-color: #E6EDF3;
   --element-bg-color: #a51111;
@@ -16,6 +17,7 @@
 [data-theme="dark"] {
   --bg-color: #0D1117;
   --text-color: #E6EDF3;
+  --secondary-bg-color: #26292f;
   --nav-bg-color: #161d27;
   --nav-text-color: #E6EDF3;
   --element-color: #0000ff;
@@ -287,7 +289,7 @@ nav {
 .education-card {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--secondary-bg-color);
   padding: 1rem;
   border-radius: 10px;
   width: 100%;
@@ -303,7 +305,7 @@ nav {
 .education-icon {
   font-size: 2rem;
   margin-right: 1rem;
-  color: #61DAFB;
+  color: var(--accent-color);
 }
 
 /* 📌 INFO ÉDUCATION */
@@ -314,13 +316,14 @@ nav {
 
 .education-info p {
   font-size: 1rem;
-  color: #ccc;
+  color: #b8b8b8;
 }
 
 .education-info span {
   font-size: 0.9rem;
   font-weight: bold;
-  color: #7abfff;
+  color: var(--accent-color);
+  filter: brightness(90%);
 }
 
 
@@ -383,7 +386,7 @@ nav {
 }
 
 .footer-links a:hover {
-  color: var(--accent-color) /* Bleu React au survol */
+  color: var(--accent-color); /* Bleu React au survol */
 }
 
 /* 📌 Responsive : Aligner verticalement sur mobile */
