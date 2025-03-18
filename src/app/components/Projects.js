@@ -61,7 +61,7 @@ const Projects = () => {
 
     return (
         <section id="projects" className="projects-section fade-in" ref={ref} >
-            <h2 className="text-[48px] font-bold mb-8">Mes Projets</h2>
+            <h2 className="text-4xl font-bold mb-8">Mes Projets</h2>
 
             <div className="projects-container">
                 {projects.map((project, index) => (

@@ -52,8 +52,8 @@ const Contact = () => {
     };
 
     return (
-        <section ref={ref} id="contact" className="min-h-screen flex flex-col items-center justify-center px-6 fade-in">
-            <h2 className="text-3xl font-semibold mb-8">Me Contacter</h2>
+        <section ref={ref} id="contact" className="min-h-screen pt-6 flex flex-col items-center justify-center px-6 fade-in">
+            <h2 className="text-4xl font-semibold mb-8">Me Contacter</h2>
             <form onSubmit={handleSubmit} className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-lg">
                 <div className="mb-4">
                     <label className="block text-gray-300 mb-2">Nom</label>

@@ -77,7 +77,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 80vh;
   padding: 3rem;
   gap: 3rem;
 }
@@ -126,7 +126,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 80vh;
   padding: 3rem;
   gap: 2rem;
 }
@@ -154,6 +154,7 @@ nav {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(0px);
   transition: backdrop-filter 0.15s ease, background 0.15s ease, transform 0.15s;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   gap: 2rem;
 }
@@ -162,14 +163,12 @@ nav {
 [data-theme="light"] .project-card {
   background-color: #f8f9fa;
   color: #000000;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Mode sombre */
 [data-theme="dark"] .project-card {
   background-color: #1c1f26;
   color: #E6EDF3;
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
 /* 💎 EFFET GLASSMORPHISM AU HOVER (uniquement sur desktop) */
@@ -260,14 +259,105 @@ nav {
 .skill-icon.nextjs { color: #000000; } /* Noir Next.js */
 .skill-icon.tailwindcss { color: #38B2AC; } /* Bleu-vert Tailwind */
 .skill-icon.csharp { color: #68217A; } /* Violet C# */
-.skill-icon.unity { color: #FFFFFF; } /* Blanc Unity */
+.skill-icon.unity { color: var(--text-color); } /* Blanc Unity */
 .skill-icon.blender { color: #F5792A; } /* Orange Blender */
+
+
+/* 📌 SECTION ÉDUCATION */
+.education-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+/* 📌 CONTAINER */
+.education-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* 📌 CARTES ÉDUCATION */
+.education-card {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+  transform: scale(1.05);
+}
+
+/* 📌 ICÔNE ÉDUCATION */
+.education-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #61DAFB;
+}
+
+/* 📌 INFO ÉDUCATION */
+.education-info h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.education-info p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.education-info span {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #7abfff;
+}
+
+
+
+/* 📌 BOUTON CV */
+.cv-container {
+  margin-top: 2rem;
+}
+
+.cv-button {
+  display: flex;
+  align-items: center;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.cv-button:hover {
+  background: #d43d3d;
+}
+
+.cv-icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
 
 /* 📌 Footer */
 .footer {
+  min-height: 100px;
   width: 100%;
-  background-color: #161B22; /* Sombre, adapté au design du site */
-  color: #E6EDF3; /* Texte clair pour contraste */
+  background-color: var(--nav-bg-color); /* Sombre, adapté au design du site */
+  color: var(--nav-text-color); /* Texte clair pour contraste */
   padding: 1.5rem 0;
   text-align: center;
   border-top: 1px solid #30363d;
@@ -282,7 +372,7 @@ nav {
   margin-top: 0.5rem;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .footer-links a {
@@ -293,13 +383,13 @@ nav {
 }
 
 .footer-links a:hover {
-  color: #61DAFB; /* Bleu React au survol */
+  color: var(--accent-color) /* Bleu React au survol */
 }
 
 /* 📌 Responsive : Aligner verticalement sur mobile */
 @media (max-width: 768px) {
   .footer-links {
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
   }
 }
