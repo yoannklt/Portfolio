@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Portfolio - Yoann Kerlogot  
 
-## Getting Started
+Ce projet est mon **portfolio personnel**, développé avec **Next.js** pour le frontend et **FastAPI** pour le backend. Il me permet de présenter mes compétences, mes projets et de faciliter le contact avec d'éventuels recruteurs ou collaborateurs.  
 
-First, run the development server:
+🔗 **Lien du site :** [yoannkerlogot.fr](https://yoannkerlogot.fr)  
+
+---
+
+## 🛠️ **Technologies utilisées**  
+
+### **Frontend :**  
+- [Next.js](https://nextjs.org/)  
+- [TailwindCSS](https://tailwindcss.com/)  
+- [React Icons](https://react-icons.github.io/react-icons/)  
+
+### **Backend :**  
+- [FastAPI](https://fastapi.tiangolo.com/)  
+- [MongoDB (via Motor)](https://motor.readthedocs.io/en/stable/)  
+
+### **Déploiement :**  
+- **Frontend :** [Vercel](https://vercel.com/)  
+- **Backend :** [Render](https://render.com/)  
+- **Base de données :** MongoDB Atlas  
+
+---
+
+## 📂 **Structure du projet**  
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+portfolio/
+│── frontend/        # Code du frontend (Next.js)
+│   ├── src/
+│   │   ├── app/     # Composants et pages
+│   │   ├── styles/  # Fichiers CSS globaux
+│   │   ├── public/  # Images et assets
+│   ├── package.json # Dépendances frontend
+│
+│── backend/         # Code du backend (FastAPI)
+│   ├── main.py      # Fichier principal FastAPI
+│   ├── models.py    # Modèles de la base de données
+│   ├── database.py  # Connexion à MongoDB
+│   ├── routes/      # Routes API
+│   ├── .env         # Variables d’environnement
+│   ├── requirements.txt # Dépendances backend
+│
+│── README.md        # Ce fichier 📌
+│── .gitignore       # Fichiers à exclure de Git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🔧 **Fonctionnalités à venir**  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [ ] **Ajout dynamique des projets via une interface admin**  
+- [ ] **Statistiques interactives sur le site**  
+- [ ] **Optimisation continue des performances et du SEO**  
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+📩 **Contact :** [yoannklt@gmail.com](mailto:yoannklt@gmail.com)  
+💼 **Portfolio :** [yoannkerlogot.fr](https://yoannkerlogot.fr)  
+🐙 **GitHub :** [github.com/yoannklt](https://github.com/yoannklt)  
+🔗 **LinkedIn :** [linkedin.com/in/yoannklt](https://www.linkedin.com/in/yoannklt)  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+💡 **Si ce projet t’a été utile ou inspiré, n’hésite pas à laisser une ⭐ sur GitHub !** 🚀
