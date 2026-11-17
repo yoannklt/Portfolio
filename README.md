@@ -2,7 +2,7 @@
 
 Ce projet est mon **portfolio personnel**, développé avec **Next.js** pour le frontend et **FastAPI** pour le backend. Il me permet de présenter mes compétences, mes projets et de faciliter le contact avec d'éventuels recruteurs ou collaborateurs.  
 
-🔗 **Lien du site :** [yoannkerlogot.fr](https://yoannkerlogot.fr)  
+🔗 **Lien du site :** Désolé, le site n'est plus hébergé, je suis en train de régler ça  
 
 ---
 
@@ -58,7 +58,6 @@ portfolio/
 ---
 
 📩 **Contact :** [yoannklt@gmail.com](mailto:yoannklt@gmail.com)  
-💼 **Portfolio :** [yoannkerlogot.fr](https://yoannkerlogot.fr)  
 🐙 **GitHub :** [github.com/yoannklt](https://github.com/yoannklt)  
 🔗 **LinkedIn :** [linkedin.com/in/yoannklt](https://www.linkedin.com/in/yoannklt)  
 
